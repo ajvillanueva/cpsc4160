@@ -1,0 +1,109 @@
+<?xml version = "1.0"?>
+<GameData>
+<!-- screenTitle is also used to identify you and your animation.
+     So make sure to include your name as part of the screenTitle -->
+<screenTitle>War in the Stars</screenTitle>
+<maxStringSize>50</maxStringSize>
+
+<title>Jordan Marro and AJ Villanueva</title>
+
+<frameCapOn>true</frameCapOn>
+<period>17</period>
+
+<maxFrames>300</maxFrames>
+<username>aaronjv</username>
+
+<view>
+  <width>600</width>
+  <height>800</height>
+</view>
+
+<world>
+  <width>600</width>
+  <height>8000</height>
+</world>
+
+<back>
+  <file>images/background.png</file>
+  <factor>3</factor>
+  <transparency>false</transparency>
+</back>
+
+<backclose>
+  <file>images/bg1.png</file>
+  <factor>1</factor>
+  <transparency>false</transparency>
+</backclose>
+
+<backfar>
+  <file>images/bg2.png</file>
+  <factor>2</factor>
+  <transparency>false</transparency>
+</backfar>
+
+<font name="font">
+  <file>fonts/arial.ttf</file>
+  <size>24</size>
+  <red>255</red>
+  <green>255</green>
+  <blue>255</blue>
+  <alpha>0</alpha>
+</font>
+
+<flappy>
+  <file>images/flappy.png</file>
+  <startLoc x="10" y="7000"/>
+  <speedX>-175</speedX>
+  <speedY>-175</speedY>
+  <transparency>true</transparency>
+</flappy>
+
+<boss>
+  <file>images/boss1.png</file>
+  <startLoc x="150" y="7500"/>
+  <speedX>15</speedX>
+  <speedY>175</speedY>
+  <transparency>false</transparency>
+</boss>
+
+<enemy1>
+  <file>images/enemy_1.png</file>
+  <startLoc x="150" y="7500"/>
+  <speedX>150</speedX>
+  <speedY>100</speedY>
+  <transparency>false</transparency>
+</enemy1>
+
+<enemy2>
+  <file>images/enemy_2.png</file>
+  <startLoc x="150" y="7500"/>
+  <speedX>60</speedX>
+  <speedY>175</speedY>
+  <transparency>false</transparency>
+</enemy2>
+
+<enemy3>
+  <file>images/enemy_3.png</file>
+  <startLoc x="150" y="7500"/>
+  <speedX>25</speedX>
+  <speedY>135</speedY>
+  <transparency>false</transparency>
+</enemy3>
+
+<enemy4>
+  <file>images/enemy_4.png</file>
+  <startLoc x="150" y="7500"/>
+  <speedX>150</speedX>
+  <speedY>15</speedY>
+  <transparency>false</transparency>
+</enemy4>
+
+<player>
+  <file>images/player_ship.png</file>
+  <startLoc x="150" y="7500"/>
+  <speedX>15</speedX>
+  <speedY>175</speedY>
+  <transparency>false</transparency>
+</player>
+
+</GameData>

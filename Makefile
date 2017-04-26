@@ -18,10 +18,14 @@ OBJS = \
 	frameGenerator.o \
 	sprite.o \
 	multisprite.o \
+	collisionStrategy.o \
 	vector2f.o \
 	clock.o \
 	player.o \
 	hud.o \
+	bullet.o \
+	bulletPool.o \
+	shootingSprite.o \
 	engine.o \
 	main.o
 EXEC = run

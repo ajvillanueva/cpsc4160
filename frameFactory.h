@@ -12,11 +12,14 @@ friend class RenderContext;
   static FrameFactory* getInstance();
   ~FrameFactory();
 
+  SDL_Surface* getSurface(const std::string&);
+
   Frame* getFrame(const std::string&);
   std::vector<Frame*> getFrames(const std::string&);
 
   static FrameFactory* instance;
   const Gamedata& gdata;
+    std::map<std::string, SDL_Surface*> surfaces;
   std::map<std::string, SDL_Texture*> textures;
   std::map<std::string, Frame*> frames;
 

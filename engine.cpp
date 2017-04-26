@@ -2,7 +2,8 @@
 #include <sstream>
 #include <string>
 #include <iomanip>
-#include "sprite.h"
+//#include "sprite.h"
+//#include "shootingSprite.h"
 #include "multisprite.h"
 #include "gamedata.h"
 #include "engine.h"
@@ -11,6 +12,13 @@
 
 bool hudIf = true;
 player* p = new player("player");
+
+class SpriteLess {
+public:
+  bool operator()(const Drawable* lhs, const Drawable* rhs) const {
+    return lhs->getScale() < rhs->getScale();
+  }
+};
 
 Engine::~Engine() {
   std::cout << "Terminating program" << std::endl;
@@ -29,8 +37,9 @@ Engine::Engine() :
   viewport( Viewport::getInstance() ),
   sprites(),
   currentSprite(-1),
-
-  makeVideo( false )
+  makeVideo( false ),
+  strategy( new PerPixelCollisionStrategy ),
+  collisions(0)
 {
   sprites.push_back( new Sprite("boss") );
   sprites.push_back( new Sprite("enemy1") );
@@ -84,13 +93,26 @@ void Engine::switchSprite(){
   Viewport::getInstance().setObjectToTrack(sprites[currentSprite]);
 }
 
+void Engine::checkForCollisions() {
+  std::vector<Drawable*>::const_iterator it = sprites.begin();
+  Drawable* player = sprites[0];
+  ++it;
+  while ( it != sprites.end() ) {
+    if ( strategy->execute(*player, **it) ) {
+      //std::cout << "collision: " << ++collisions << std::endl;
+      ++collisions;
+    }
+    ++it;
+  }
+}
+
 void Engine::play() {
   SDL_Event event;
   const Uint8* keystate;
   bool done = false;
   Uint32 ticks = clock.getElapsedTicks();
   FrameGenerator frameGen;
-
+  Viewport::getInstance().setObjectToTrack(p);
   while ( !done ) {
     while ( SDL_PollEvent(&event) ) {
       keystate = SDL_GetKeyboardState(NULL);
@@ -107,6 +129,10 @@ void Engine::play() {
         if ( keystate[SDL_SCANCODE_S] ) {
           //clock.toggleSloMo();
         }
+        if ( keystate[SDL_SCANCODE_SPACE] ) {
+        static_cast<ShootingSprite*>(sprites[0])->shoot();
+        p->shoot();
+      }
         if ( keystate[SDL_SCANCODE_T] ) {
           switchSprite();
         }
@@ -146,6 +172,7 @@ void Engine::play() {
       clock.incrFrame();
       draw();
       update(ticks);
+      checkForCollisions();
       if ( makeVideo ) {
         frameGen.makeFrame();
       }

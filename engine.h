@@ -6,6 +6,8 @@
 #include "viewport.h"
 #include "hud.h"
 
+class CollisionStrategy;
+
 class Engine {
 public:
   Engine ();
@@ -28,10 +30,13 @@ private:
 
   int currentSprite;
   bool makeVideo;
+  CollisionStrategy* strategy;
+  int collisions;
 
   void draw() const;
   void update(Uint32);
 
   Engine(const Engine&);
   Engine& operator=(const Engine&);
+  void checkForCollisions();
 };

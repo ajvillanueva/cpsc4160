@@ -100,10 +100,21 @@
 
 <player>
   <file>images/player_ship.png</file>
+  <bullet>beam</bullet>
   <startLoc x="150" y="7500"/>
   <speedX>150</speedX>
   <speedY>175</speedY>
   <transparency>false</transparency>
 </player>
+
+<beam>
+  <file>images/beam.png</file>
+  <interval>1</interval>
+  <distance>300</distance>
+  <startLoc x="0" y="0"/>
+  <speedX>0</speedX>
+  <speedY>10</speedY>
+  <strategy>rectangular</strategy>
+</beam>
 
 </GameData>

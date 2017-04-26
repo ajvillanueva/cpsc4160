@@ -6,7 +6,7 @@
 #include "sprite.h"
 
 player::player( const std::string& name) :
-  Sprite(name),
+  ShootingSprite(name),
   frame( RenderContext::getInstance()->getFrame(name) ),
   worldWidth(Gamedata::getInstance().getXmlInt("world/width")),
   worldHeight(Gamedata::getInstance().getXmlInt("world/height")),
@@ -15,7 +15,7 @@ player::player( const std::string& name) :
   initialVelocity(getVelocity()) { }
 
 player::player( const player& p) :
-  Sprite(p),
+  ShootingSprite(p),
   frame(p.frame),
   worldWidth(Gamedata::getInstance().getXmlInt("world/width")),
   worldHeight(Gamedata::getInstance().getXmlInt("world/height")),

@@ -24,6 +24,21 @@ FrameFactory::~FrameFactory() {
   }
 }
 
+SDL_Surface* FrameFactory::getSurface(const std::string& name) {
+    std::map<std::string, SDL_Surface*>::const_iterator it =
+      surfaces.find(name);
+  if ( it == surfaces.end() ) {
+    SDL_Surface * const surface =
+      IOmod::getInstance().readSurface( gdata.getXmlStr(name+"/file"));
+    surfaces[name] = surface;
+    surfaces[name] = surface;
+    return surface;
+  }
+  else {
+    return it->second;
+  }
+}
+
 Frame* FrameFactory::getFrame(const std::string& name) {
     std::map<std::string, Frame*>::const_iterator it = frames.find(name);
   if ( it == frames.end() ) {

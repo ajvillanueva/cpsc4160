@@ -4,10 +4,11 @@
 #include <cmath>
 #include <string>
 #include "frame.h"
-#include "sprite.h"
+//#include "sprite.h"
 #include "drawable.h"
+#include "shootingSprite.h"
 
-class player : public Sprite {
+class player : public ShootingSprite {
 
 public:
   player(const std::string& name);

@@ -11,7 +11,8 @@ player::player( const std::string& name) :
   worldWidth(Gamedata::getInstance().getXmlInt("world/width")),
   worldHeight(Gamedata::getInstance().getXmlInt("world/height")),
   frameWidth(frame->getWidth()),
-  frameHeight(frame->getHeight()) { }
+  frameHeight(frame->getHeight()),
+  initialVelocity(getVelocity()) { }
 
 player::player( const player& p) :
   Sprite(p),
@@ -19,7 +20,8 @@ player::player( const player& p) :
   worldWidth(Gamedata::getInstance().getXmlInt("world/width")),
   worldHeight(Gamedata::getInstance().getXmlInt("world/height")),
   frameWidth(p.getFrame()->getWidth()),
-  frameHeight(p.getFrame()->getHeight()) { }
+  frameHeight(p.getFrame()->getHeight()),
+  initialVelocity(p.initialVelocity) { }
 
 void player::stop() {
   setVelocityX(0); //slowDown*getVelocityX() );
@@ -28,26 +30,39 @@ void player::stop() {
 
 void player::right() {
   if ( getX() < worldWidth-frameWidth) {
-    setVelocityX( std::abs( getVelocityX() ) );
+    setVelocityX(initialVelocity[0]);
   }
+
+  // if ( getX() < worldWidth-frameWidth) {
+  //   setVelocityX( std::abs( getVelocityX() + 1 ) );
+  // }
 }
 
 void player::left() {
   if ( getX() > 0) {
-    setVelocityX(- std::abs( getVelocityX() ) );
+    setVelocityX(-initialVelocity[0]);
   }
+  // if ( getX() > 0) {
+  //   setVelocityX(- std::abs( getVelocityX() - 1) );
+  // }
 }
 
 void player::up() {
   if ( getY() > 0) {
-    setVelocityY(- std::abs( getVelocityY() ) );
+    setVelocityY(-initialVelocity[1]);
   }
+  // if ( getY() > 0) {
+  //   setVelocityY(- std::abs( getVelocityY() ) );
+  // }
 }
 
 void player::down() {
   if ( getY() < worldHeight-frameHeight) {
-    setVelocityY( std::abs( getVelocityY() ) );
+    setVelocityY(initialVelocity[1]);
   }
+  // if ( getY() < worldHeight-frameHeight) {
+  //   setVelocityY( std::abs( getVelocityY() ) );
+  // }
 }
 
 void player::update(Uint32 ticks) {

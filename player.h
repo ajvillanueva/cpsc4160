@@ -27,6 +27,7 @@ private:
   int frameWidth;
   int frameHeight;
   int getDistance(const Sprite*) const;
+  Vector2f initialVelocity;
 };
 
 #endif

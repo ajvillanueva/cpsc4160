@@ -101,7 +101,7 @@
 <player>
   <file>images/player_ship.png</file>
   <startLoc x="150" y="7500"/>
-  <speedX>15</speedX>
+  <speedX>150</speedX>
   <speedY>175</speedY>
   <transparency>false</transparency>
 </player>

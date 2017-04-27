@@ -3,6 +3,8 @@
 #include "sprite.h"
 #include "bulletPool.h"
 
+class player;
+
 class ShootingSprite : public Sprite {
 public:
   ShootingSprite(const std::string& n);

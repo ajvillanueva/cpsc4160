@@ -6,22 +6,30 @@
 #include "sprite.h"
 
 player::player( const std::string& name) :
-  ShootingSprite(name),
+  Sprite(name),
   frame( RenderContext::getInstance()->getFrame(name) ),
   worldWidth(Gamedata::getInstance().getXmlInt("world/width")),
   worldHeight(Gamedata::getInstance().getXmlInt("world/height")),
   frameWidth(frame->getWidth()),
   frameHeight(frame->getHeight()),
-  initialVelocity(getVelocity()) { }
+  initialVelocity(getVelocity()),
+  bulletName( Gamedata::getInstance().getXmlStr(name+"/bullet") ),
+  bullets( bulletName ),
+  minSpeed( Gamedata::getInstance().getXmlInt(bulletName+"/speedX") )
+   { }
 
 player::player( const player& p) :
-  ShootingSprite(p),
+  Sprite(p),
   frame(p.frame),
   worldWidth(Gamedata::getInstance().getXmlInt("world/width")),
   worldHeight(Gamedata::getInstance().getXmlInt("world/height")),
   frameWidth(p.getFrame()->getWidth()),
   frameHeight(p.getFrame()->getHeight()),
-  initialVelocity(p.initialVelocity) { }
+  initialVelocity(p.initialVelocity),
+  bulletName(p.bulletName),
+  bullets(p.bullets),
+  minSpeed(p.minSpeed)
+   { }
 
 void player::stop() {
   setVelocityX(0); //slowDown*getVelocityX() );
@@ -64,6 +72,24 @@ void player::down() {
   //   setVelocityY( std::abs( getVelocityY() ) );
   // }
 }
+void player::shoot() {
+  float x = getX()+getFrame()->getWidth()/2;
+  float y = getY()+getFrame()->getHeight()-100;
+  // I'm not adding minSpeed to y velocity:
+  bullets.shoot( Vector2f(x, y),
+    Vector2f(0, -500)
+  );
+}
+
+bool player::collidedWith(const Drawable* obj) const {
+  return bullets.collidedWith( obj );
+}
+
+void player::draw() const {
+  Sprite::draw();
+  bullets.draw();
+}
+
 
 void player::update(Uint32 ticks) {
 
@@ -81,5 +107,7 @@ void player::update(Uint32 ticks) {
   if (getX() >= worldWidth-frameWidth) {
     setVelocityX( -fabs( getVelocityX() ) );;
   }
+  Sprite::update(ticks);
+  bullets.update(ticks);
   stop();
 }

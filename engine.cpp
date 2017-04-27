@@ -12,7 +12,7 @@
 
 bool hudIf = true;
 player* p = new player("player");
-
+//ShootingSprite* pease = new ShootingSprite("player");
 class SpriteLess {
 public:
   bool operator()(const Drawable* lhs, const Drawable* rhs) const {
@@ -46,6 +46,8 @@ Engine::Engine() :
   sprites.push_back( new Sprite("enemy2") );
   sprites.push_back( new Sprite("enemy3") );
   sprites.push_back( new Sprite("enemy4") );
+  //sprites.push_back(pease);
+  //sprites.push_back( new ShootingSprite("player"));
   switchSprite();
   std::cout << "Loading complete" << std::endl;
 }
@@ -80,8 +82,8 @@ void Engine::draw() const {
 }
 
 void Engine::update(Uint32 ticks) {
-  p->update(ticks);
   for(auto* s : sprites) s->update(ticks);
+  p->update(ticks);
   back.update();
   backfar.update();
   backclose.update();
@@ -129,10 +131,7 @@ void Engine::play() {
         if ( keystate[SDL_SCANCODE_S] ) {
           //clock.toggleSloMo();
         }
-        if ( keystate[SDL_SCANCODE_SPACE] ) {
-        static_cast<ShootingSprite*>(sprites[0])->shoot();
-        p->shoot();
-      }
+
         if ( keystate[SDL_SCANCODE_T] ) {
           switchSprite();
         }
@@ -167,15 +166,18 @@ void Engine::play() {
     if (keystate[SDL_SCANCODE_S]) {
       p->down();
     }
+    if ( keystate[SDL_SCANCODE_SPACE] ) {
+      p->shoot();
+  }
     ticks = clock.getElapsedTicks();
     if ( ticks > 0 ) {
       clock.incrFrame();
-      draw();
-      update(ticks);
-      checkForCollisions();
       if ( makeVideo ) {
         frameGen.makeFrame();
       }
+      draw();
+      update(ticks);
+      checkForCollisions();
     }
   }
 }

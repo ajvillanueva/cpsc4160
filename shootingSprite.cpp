@@ -15,12 +15,12 @@ ShootingSprite::ShootingSprite(const ShootingSprite& s) :
   minSpeed(s.minSpeed)
 { }
 
-void ShootingSprite::shoot() { 
-  float x = getX()+getFrame()->getWidth();
-  float y = getY()+getFrame()->getHeight()/2;
+void ShootingSprite::shoot() {
+  float x = getX()+getFrame()->getWidth()/2;
+  float y = getY()+getFrame()->getHeight();
   // I'm not adding minSpeed to y velocity:
-  bullets.shoot( Vector2f(x, y), 
-    Vector2f(minSpeed+getVelocityX(), 0)
+  bullets.shoot( Vector2f(x, y),
+    Vector2f(getVelocityY(), -100)
   );
 }
 
@@ -28,13 +28,12 @@ bool ShootingSprite::collidedWith(const Drawable* obj) const {
   return bullets.collidedWith( obj );
 }
 
-void ShootingSprite::draw() const { 
+void ShootingSprite::draw() const {
   Sprite::draw();
   bullets.draw();
 }
 
-void ShootingSprite::update(Uint32 ticks) { 
+void ShootingSprite::update(Uint32 ticks) {
   Sprite::update(ticks);
   bullets.update(ticks);
 }
-

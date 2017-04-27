@@ -10,7 +10,7 @@
 <frameCapOn>true</frameCapOn>
 <period>17</period>
 
-<maxFrames>300</maxFrames>
+<maxFrames>500</maxFrames>
 <username>aaronjv</username>
 
 <view>
@@ -108,12 +108,12 @@
 </player>
 
 <beam>
-  <file>images/beam.png</file>
-  <interval>1</interval>
-  <distance>300</distance>
-  <startLoc x="0" y="0"/>
+  <file>images/raybeam.png</file>
+  <interval>100</interval>
+  <distance>1000</distance>
+  <startLoc x="100" y="100"/>
   <speedX>0</speedX>
-  <speedY>10</speedY>
+  <speedY>500</speedY>
   <strategy>rectangular</strategy>
 </beam>
 

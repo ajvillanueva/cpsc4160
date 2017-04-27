@@ -144,4 +144,14 @@
   <strategy>rectangular</strategy>
 </beam>
 
+<shot>
+  <file>images/shot.png</file>
+  <interval>100</interval>
+  <distance>1000</distance>
+  <startLoc x="100" y="100"/>
+  <speedX>0</speedX>
+  <speedY>-500</speedY>
+  <strategy>rectangular</strategy>
+</shot>
+
 </GameData>

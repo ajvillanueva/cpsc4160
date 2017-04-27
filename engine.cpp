@@ -9,6 +9,7 @@
 #include "engine.h"
 #include "frameGenerator.h"
 #include "player.h"
+#include "smartSprite.h"
 
 bool hudIf = true;
 player* p = new player("player");

@@ -13,6 +13,9 @@
 <maxFrames>500</maxFrames>
 <username>aaronjv</username>
 
+<numberOfEnemies>1</numberOfEnemies>
+<numberOfAsteroids>15</numberOfAsteroids>
+
 <view>
   <width>600</width>
   <height>800</height>
@@ -50,58 +53,82 @@
   <alpha>0</alpha>
 </font>
 
-<flappy>
-  <file>images/flappy.png</file>
-  <startLoc x="10" y="7000"/>
-  <speedX>-175</speedX>
-  <speedY>-175</speedY>
-  <transparency>true</transparency>
-</flappy>
-
 <boss>
   <file>images/boss1.png</file>
-  <startLoc x="150" y="7500"/>
+  <startLoc x="150" y="0"/>
   <speedX>15</speedX>
-  <speedY>175</speedY>
+  <speedY>0</speedY>
   <transparency>false</transparency>
 </boss>
 
 <enemy1>
   <file>images/enemy_1.png</file>
-  <startLoc x="150" y="7500"/>
-  <speedX>150</speedX>
-  <speedY>100</speedY>
+  <startLoc x="150" y="400"/>
+  <speedX>170</speedX>
+  <speedY>0</speedY>
   <transparency>false</transparency>
 </enemy1>
 
+<enemy1b>
+  <file>images/enemy_1.png</file>
+  <startLoc x="150" y="1500"/>
+  <speedX>150</speedX>
+  <speedY>0</speedY>
+  <transparency>false</transparency>
+</enemy1b>
+
 <enemy2>
   <file>images/enemy_2.png</file>
-  <startLoc x="150" y="7500"/>
-  <speedX>60</speedX>
-  <speedY>175</speedY>
+  <startLoc x="150" y="520"/>
+  <speedX>260</speedX>
+  <speedY>0</speedY>
   <transparency>false</transparency>
 </enemy2>
 
+<enemy2b>
+  <file>images/enemy_2.png</file>
+  <startLoc x="150" y="2500"/>
+  <speedX>60</speedX>
+  <speedY>0</speedY>
+  <transparency>false</transparency>
+</enemy2b>
+
 <enemy3>
   <file>images/enemy_3.png</file>
-  <startLoc x="150" y="7500"/>
-  <speedX>25</speedX>
-  <speedY>135</speedY>
+  <startLoc x="150" y="650"/>
+  <speedX>425</speedX>
+  <speedY>0</speedY>
   <transparency>false</transparency>
 </enemy3>
 
+<enemy3b>
+  <file>images/enemy_3.png</file>
+  <startLoc x="150" y="4500"/>
+  <speedX>25</speedX>
+  <speedY>0</speedY>
+  <transparency>false</transparency>
+</enemy3b>
+
 <enemy4>
   <file>images/enemy_4.png</file>
-  <startLoc x="150" y="7500"/>
-  <speedX>150</speedX>
-  <speedY>15</speedY>
+  <startLoc x="150" y="780"/>
+  <speedX>200</speedX>
+  <speedY>0</speedY>
   <transparency>false</transparency>
 </enemy4>
+
+<enemy4b>
+  <file>images/enemy_4.png</file>
+  <startLoc x="150" y="6500"/>
+  <speedX>150</speedX>
+  <speedY>0</speedY>
+  <transparency>false</transparency>
+</enemy4b>
 
 <player>
   <file>images/player_ship.png</file>
   <bullet>beam</bullet>
-  <startLoc x="150" y="7500"/>
+  <startLoc x="250" y="7500"/>
   <speedX>150</speedX>
   <speedY>175</speedY>
   <transparency>false</transparency>

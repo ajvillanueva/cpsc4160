@@ -2,8 +2,8 @@
 #include <sstream>
 #include <string>
 #include <iomanip>
-//#include "sprite.h"
-//#include "shootingSprite.h"
+#include <random>
+#include <algorithm>
 #include "multisprite.h"
 #include "gamedata.h"
 #include "engine.h"
@@ -46,6 +46,10 @@ Engine::Engine() :
   sprites.push_back( new Sprite("enemy2") );
   sprites.push_back( new Sprite("enemy3") );
   sprites.push_back( new Sprite("enemy4") );
+  sprites.push_back( new Sprite("enemy1b") );
+  sprites.push_back( new Sprite("enemy2b") );
+  sprites.push_back( new Sprite("enemy3b") );
+  sprites.push_back( new Sprite("enemy4b") );
   //sprites.push_back(pease);
   //sprites.push_back( new ShootingSprite("player"));
   switchSprite();

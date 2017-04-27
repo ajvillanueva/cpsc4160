@@ -7,7 +7,7 @@ class Sprite : public Drawable {
 public:
   Sprite(const std::string&);
   Sprite(const Sprite&);
-  virtual ~Sprite() { } 
+  virtual ~Sprite() { }
   Sprite& operator=(const Sprite&);
 
   virtual const Frame* getFrame() const { return frame; }

@@ -9,7 +9,7 @@ SDL_Rect r;
 r.x = 10;
 r.y = 10;
 r.w = 195;
-r.h = 130;
+r.h = 160;
 
 // First set the blend mode so that alpha blending will work;
 // the default blend mode is SDL_BLENDMODE_NONE!

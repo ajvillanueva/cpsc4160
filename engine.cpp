@@ -63,10 +63,11 @@ void Engine::draw() const {
     hud.drawHud();
     std::stringstream strm;
     std::stringstream strm2;
-    std::string ctrl, toggleHud;
+    std::string ctrl, toggleHud, shoot;
     strm << "fps: " << clock.getFps();
     strm2 << "avgfps: " << clock.getAvgFps();
     ctrl = "wasd to move";
+    shoot = "space to shoot";
     toggleHud = "F1 to toggle HUD";
     SDL_Color color;
     color.r = 0; color.g = 0; color.b = 0; color.a = 0;
@@ -74,7 +75,8 @@ void Engine::draw() const {
     io.writeText(strm.str(), 15, 20, color);
     io.writeText(strm2.str(), 15, 50, color);
     io.writeText(ctrl, 15, 80, color);
-    io.writeText(toggleHud, 15, 110, color);
+    io.writeText(shoot, 15, 110, color);
+    io.writeText(toggleHud, 15, 140, color);
     io.writeText(title, 10, 750);
   }
   //viewport.draw();

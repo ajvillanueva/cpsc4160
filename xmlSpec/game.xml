@@ -45,8 +45,8 @@
 </backfar>
 
 <font name="font">
-  <file>fonts/arial.ttf</file>
-  <size>24</size>
+  <file>fonts/db.ttf</file>
+  <size>20</size>
   <red>255</red>
   <green>255</green>
   <blue>255</blue>

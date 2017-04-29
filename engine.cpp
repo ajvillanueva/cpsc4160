@@ -64,6 +64,11 @@ void Engine::draw() const {
   backclose.draw();
   p->draw();
   for(auto* s : sprites) s->draw();
+std::stringstream strm3;
+strm3.clear();
+strm3.str("");
+strm3 << "collision no: " << collisions;
+io.writeText(strm3.str(), 30, 90);
   Hud hud;
   if (hudIf) {
     hud.drawHud();
@@ -115,9 +120,10 @@ void Engine::checkForCollisions() {
   if (!godmode) {
     std::vector<Drawable*>::const_iterator it = sprites.begin();
     Drawable* player = sprites[0];
+
     ++it;
     while ( it != sprites.end() ) {
-      if ( strategy->execute(*player, **it) ) {
+      if ( strategy->execute(*p, **it) ) {
         std::cout << "collision: " << ++collisions << std::endl;
         ++collisions;
       }

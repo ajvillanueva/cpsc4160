@@ -123,7 +123,7 @@ void Engine::checkForCollisions() {
 
     ++it;
     while ( it != sprites.end() ) {
-      if ( strategy->execute(*p, **it) ) {
+      if ( strategy->execute(*p, **it)  ) {
         std::cout << "collision: " << ++collisions << std::endl;
         ++collisions;
       }

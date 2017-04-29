@@ -19,6 +19,7 @@ public:
   void shoot();
   virtual bool collidedWith(const Drawable*) const;
 
+  BulletPool getBullets(){return bullets;};
   void stop();
   void right();
   void left();

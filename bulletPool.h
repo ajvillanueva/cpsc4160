@@ -10,6 +10,10 @@ public:
   void draw() const;
   void update(Uint32 ticks);
   void shoot(const Vector2f& pos, const Vector2f& vel);
+  void reset() {
+    bulletList.clear();
+    freeList.clear();
+  }
 
   unsigned int bulletCount() const { return bulletList.size(); }
   unsigned int freeCount()  const { return freeList.size(); }

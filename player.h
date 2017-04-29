@@ -25,6 +25,7 @@ public:
   void left();
   void up();
   void down();
+  void reset() {bullets.reset();}
 
 private:
   const Frame * frame;

@@ -172,10 +172,13 @@ void Engine::play() {
           makeVideo = false;
         }
         if (keystate[SDL_SCANCODE_R]) {
-          // set godmode to false
-          // put player back in original spot
+          godmode = false;
+
+          p->setX(Gamedata::getInstance().getXmlInt("player/startLoc/x"));
+          p->setY(Gamedata::getInstance().getXmlInt("player/startLoc/y"));
+
+          p->reset();
           // put enemies back where they were
-          // reset bulletpool count
         }
         if (keystate[SDL_SCANCODE_G]) {
           if (godmode) {

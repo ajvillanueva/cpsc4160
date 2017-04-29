@@ -17,9 +17,11 @@ public:
   SDL_Texture* getTexture() const { return texture; }
   int getWidth()  const { return width; }
   int getHeight() const { return height; }
+  Frame* crop(SDL_Rect)const;
 private:
   SDL_Renderer * renderer;
   SDL_Texture * texture;
+  SDL_Rect rect;
   int width;
   int height;
   Frame();

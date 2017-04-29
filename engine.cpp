@@ -40,7 +40,8 @@ Engine::Engine() :
   currentSprite(-1),
   makeVideo( false ),
   strategy( new PerPixelCollisionStrategy ),
-  collisions(0)
+  collisions(0),
+  godmode ( false )
 {
   sprites.push_back( new Sprite("boss") );
   sprites.push_back( new Sprite("enemy1") );
@@ -103,15 +104,17 @@ void Engine::switchSprite(){
 }
 
 void Engine::checkForCollisions() {
-  std::vector<Drawable*>::const_iterator it = sprites.begin();
-  Drawable* player = sprites[0];
-  ++it;
-  while ( it != sprites.end() ) {
-    if ( strategy->execute(*player, **it) ) {
-      //std::cout << "collision: " << ++collisions << std::endl;
-      ++collisions;
-    }
+  if (!godmode) {
+    std::vector<Drawable*>::const_iterator it = sprites.begin();
+    Drawable* player = sprites[0];
     ++it;
+    while ( it != sprites.end() ) {
+      if ( strategy->execute(*player, **it) ) {
+        //std::cout << "collision: " << ++collisions << std::endl;
+        ++collisions;
+      }
+      ++it;
+    }
   }
 }
 
@@ -152,6 +155,16 @@ void Engine::play() {
         else if (keystate[SDL_SCANCODE_F4] && makeVideo) {
           std::cout << "Terminating frame capture" << std::endl;
           makeVideo = false;
+        }
+        if (keystate[SDL_SCANCODE_R]) {
+          //reset
+        }
+        if (keystate[SDL_SCANCODE_G]) {
+          if (godmode) {
+            godmode = false;
+          } else {
+            godmode = true;
+          }
         }
       }
     }

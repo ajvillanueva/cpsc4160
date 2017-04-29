@@ -32,6 +32,7 @@ private:
   bool makeVideo;
   CollisionStrategy* strategy;
   int collisions;
+  bool godmode;
 
   void draw() const;
   void update(Uint32);

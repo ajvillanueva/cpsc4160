@@ -140,7 +140,7 @@
   <startLoc x="100" y="100"/>
   <speedX>0</speedX>
   <speedY>500</speedY>
-  <strategy>rectangular</strategy>
+  <strategy>perpixel</strategy>
 </beam>
 
 <shot>
@@ -150,7 +150,7 @@
   <startLoc x="100" y="100"/>
   <speedX>0</speedX>
   <speedY>-500</speedY>
-  <strategy>rectangular</strategy>
+  <strategy>perpixel</strategy>
 </shot>
 
 </GameData>

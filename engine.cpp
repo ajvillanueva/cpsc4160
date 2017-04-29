@@ -69,7 +69,7 @@ void Engine::draw() const {
     hud.drawHud();
     std::stringstream strm;
     std::stringstream strm2;
-    std::string ctrl, toggleHud, shoot, god, r;
+    std::string ctrl, toggleHud, shoot, god, r, god2;
     strm << "Fps: " << clock.getFps();
     strm2 << "Avgfps: " << clock.getAvgFps();
     ctrl = "wasd to move";
@@ -77,6 +77,7 @@ void Engine::draw() const {
     toggleHud = "F1 to toggle HUD";
     god = "G for god mode";
     r = "R for reset";
+    god2 = "God mode on";
     SDL_Color color;
     color.r = 0; color.g = 0; color.b = 0; color.a = 0;
     std::string title = Gamedata::getInstance().getXmlStr("title");
@@ -87,6 +88,9 @@ void Engine::draw() const {
     io.writeText(toggleHud, 15, 140, color);
     io.writeText(god, 15, 170, color);
     io.writeText(r, 15, 200, color);
+    if (godmode) {
+      io.writeText(god2, 400, 90);
+    }
     io.writeText(title, 10, 770);
   }
   //viewport.draw();
@@ -114,7 +118,7 @@ void Engine::checkForCollisions() {
     ++it;
     while ( it != sprites.end() ) {
       if ( strategy->execute(*player, **it) ) {
-        //std::cout << "collision: " << ++collisions << std::endl;
+        std::cout << "collision: " << ++collisions << std::endl;
         ++collisions;
       }
       ++it;
@@ -161,7 +165,10 @@ void Engine::play() {
           makeVideo = false;
         }
         if (keystate[SDL_SCANCODE_R]) {
-          //reset
+          // set godmode to false
+          // put player back in original spot
+          // put enemies back where they were
+          // reset bulletpool count
         }
         if (keystate[SDL_SCANCODE_G]) {
           if (godmode) {
@@ -195,13 +202,13 @@ void Engine::play() {
   }
     ticks = clock.getElapsedTicks();
     if ( ticks > 0 ) {
+      checkForCollisions();
       clock.incrFrame();
       if ( makeVideo ) {
         frameGen.makeFrame();
       }
       draw();
       update(ticks);
-      checkForCollisions();
     }
   }
 }

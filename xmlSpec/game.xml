@@ -13,9 +13,6 @@
 <maxFrames>500</maxFrames>
 <username>aaronjv</username>
 
-<numberOfEnemies>1</numberOfEnemies>
-<numberOfAsteroids>15</numberOfAsteroids>
-
 <view>
   <width>600</width>
   <height>800</height>

@@ -69,12 +69,14 @@ void Engine::draw() const {
     hud.drawHud();
     std::stringstream strm;
     std::stringstream strm2;
-    std::string ctrl, toggleHud, shoot;
-    strm << "fps: " << clock.getFps();
-    strm2 << "avgfps: " << clock.getAvgFps();
+    std::string ctrl, toggleHud, shoot, god, r;
+    strm << "Fps: " << clock.getFps();
+    strm2 << "Avgfps: " << clock.getAvgFps();
     ctrl = "wasd to move";
-    shoot = "space to shoot";
+    shoot = "Space to shoot";
     toggleHud = "F1 to toggle HUD";
+    god = "G for god mode";
+    r = "R for reset";
     SDL_Color color;
     color.r = 0; color.g = 0; color.b = 0; color.a = 0;
     std::string title = Gamedata::getInstance().getXmlStr("title");
@@ -83,7 +85,9 @@ void Engine::draw() const {
     io.writeText(ctrl, 15, 80, color);
     io.writeText(shoot, 15, 110, color);
     io.writeText(toggleHud, 15, 140, color);
-    io.writeText(title, 10, 750);
+    io.writeText(god, 15, 170, color);
+    io.writeText(r, 15, 200, color);
+    io.writeText(title, 10, 770);
   }
   //viewport.draw();
   SDL_RenderPresent(renderer);

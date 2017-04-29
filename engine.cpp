@@ -119,13 +119,21 @@ void Engine::switchSprite(){
 }
 
 void Engine::checkForCollisions() {
-  if (!godmode) {
+
     std::vector<Drawable*>::const_iterator it = sprites.begin();
     Drawable* player = sprites[0];
-
+  if (!godmode) {
     //++it;
     while ( it != sprites.end() ) {
       if ( strategy->execute(*p, **it) || p->collidedWith(*it)  ) {
+        //std::cout << "collision: " << collisions << std::endl;
+        ++collisions;
+      }
+      ++it;
+    }
+  } else if(godmode){
+    while ( it != sprites.end() ) {
+      if (p->collidedWith(*it)  ) {
         //std::cout << "collision: " << collisions << std::endl;
         ++collisions;
       }

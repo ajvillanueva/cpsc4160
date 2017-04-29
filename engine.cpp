@@ -13,6 +13,7 @@
 
 bool hudIf = true;
 player* p = new player("player");
+int lives = Gamedata::getInstance().getXmlInt("numberOfLives");
 //ShootingSprite* pease = new ShootingSprite("player");
 class SpriteLess {
 public:
@@ -121,7 +122,7 @@ void Engine::checkForCollisions() {
     std::vector<Drawable*>::const_iterator it = sprites.begin();
     Drawable* player = sprites[0];
 
-    ++it;
+    //++it;
     while ( it != sprites.end() ) {
       if ( strategy->execute(*p, **it) ) {
         std::cout << "collision: " << ++collisions << std::endl;

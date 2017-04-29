@@ -13,6 +13,8 @@
 <maxFrames>500</maxFrames>
 <username>aaronjv</username>
 
+<numberOfLives>3</numberOfLives>
+
 <view>
   <width>600</width>
   <height>800</height>
@@ -51,7 +53,7 @@
 </font>
 
 <boss>
-  <file>images/boss1.png</file>
+  <file>images/266.png</file>
   <startLoc x="150" y="0"/>
   <speedX>15</speedX>
   <speedY>0</speedY>

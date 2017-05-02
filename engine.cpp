@@ -26,6 +26,7 @@ public:
 Engine::~Engine() {
   std::cout << "Terminating program" << std::endl;
   for (auto& it: sprites) delete it;
+  for (auto&& it: sprites) delete it;
   delete p;
 }
 
@@ -121,28 +122,31 @@ void Engine::switchSprite(){
 void Engine::checkForCollisions() {
 
     std::vector<Drawable*>::iterator it = sprites.begin();
-    Drawable* player = sprites[0];
+  //  Drawable* player = sprites[0];
+  while ( it != sprites.end() ) {
   if (!godmode) {
     //++it;
-    while ( it != sprites.end() ) {
+
       if ( strategy->execute(*p, **it) || p->collidedWith(*it)  ) {
         //std::cout << "collision: " << collisions << std::endl;
+          //std::cout << "collision: " << collisions << std::endl;
+      Drawable* boom =  new ExplodingSprite(*static_cast<Sprite*>(*it));
+          delete *it;
+          *it = boom;
         ++collisions;
       }
-      ++it;
     }
-  } else if(godmode){
-    while ( it != sprites.end() ) {
+   else if(godmode){
       if (p->collidedWith(*it)  ) {
         //std::cout << "collision: " << collisions << std::endl;
-        Drawable* boom =
-          new ExplodingSprite(*static_cast<Sprite*>(*it));
+  Drawable* boom =  new ExplodingSprite(*static_cast<Sprite*>(*it));
         delete *it;
         *it = boom;
         ++collisions;
+        //delete *it;
       }
-      ++it;
     }
+    ++it;
   }
 }
 
@@ -225,13 +229,13 @@ void Engine::play() {
   }
     ticks = clock.getElapsedTicks();
     if ( ticks > 0 ) {
-      checkForCollisions();
       clock.incrFrame();
       if ( makeVideo ) {
         frameGen.makeFrame();
       }
       draw();
       update(ticks);
+          checkForCollisions();
     }
   }
 }

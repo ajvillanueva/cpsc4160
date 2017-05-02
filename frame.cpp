@@ -41,15 +41,15 @@ void Frame::draw(int sx, int sy, int dx, int dy) const {
 }
 
 Frame* Frame::crop(SDL_Rect sub)const{
-  if(sub.x+sub.w > rect.w || sub.y+sub.h > rect.h){
-    std::cerr << "Attempted to crop image with invalid geometry."
-              << std::endl
-              << "(0,0 + "<<rect.w << "x"<<rect.h<<")"
-              << " --> "
-              << "("<<sub.x<<","<<sub.y<<" + "<<sub.w << "x"<<sub.h<<")"
-              << std::endl;
-    return nullptr;
-  }
+  // if(sub.x+sub.w > rect.w || sub.y+sub.h > rect.h){
+  //   // std::cerr << "Attempted to crop image with invalid geometry."
+  //   //           << std::endl
+  //   //           << "(0,0 + "<<rect.w << "x"<<rect.h<<")"
+  //   //           << " --> "
+  //   //           << "("<<sub.x<<","<<sub.y<<" + "<<sub.w << "x"<<sub.h<<")"
+  //   //           << std::endl;
+  //   return nullptr;
+  // }
 
   Frame* cloned = new Frame(*this);
   cloned->rect = sub;

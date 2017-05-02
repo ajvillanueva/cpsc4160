@@ -71,8 +71,8 @@
   <speedY>0</speedY>
   <transparency>false</transparency>
   <chunk>
-  <size>5</size>
-  <distance>200</distance>
+  <size>9</size>
+  <distance>100</distance>
 </chunk>
 </enemy1>
 
@@ -83,8 +83,8 @@
   <speedY>0</speedY>
   <transparency>false</transparency>
   <chunk>
-  <size>5</size>
-  <distance>200</distance>
+  <size>9</size>
+  <distance>100</distance>
 </chunk>
 </enemy1b>
 
@@ -96,7 +96,7 @@
   <transparency>false</transparency>
   <chunk>
   <size>5</size>
-  <distance>200</distance>
+  <distance>100</distance>
 </chunk>
 </enemy2>
 
@@ -108,7 +108,7 @@
   <transparency>false</transparency>
   <chunk>
   <size>5</size>
-  <distance>200</distance>
+  <distance>100</distance>
 </chunk>
 </enemy2b>
 
@@ -120,7 +120,7 @@
   <transparency>false</transparency>
   <chunk>
   <size>5</size>
-  <distance>200</distance>
+  <distance>100</distance>
 </chunk>
 </enemy3>
 
@@ -132,7 +132,7 @@
   <transparency>false</transparency>
   <chunk>
   <size>5</size>
-  <distance>200</distance>
+  <distance>100</distance>
 </chunk>
 </enemy3b>
 
@@ -144,7 +144,7 @@
   <transparency>false</transparency>
   <chunk>
   <size>5</size>
-  <distance>200</distance>
+  <distance>100</distance>
 </chunk>
 </enemy4>
 
@@ -156,7 +156,7 @@
   <transparency>false</transparency>
   <chunk>
   <size>5</size>
-  <distance>200</distance>
+  <distance>100</distance>
 </chunk>
 </enemy4b>
 
@@ -169,7 +169,7 @@
   <transparency>false</transparency>
   <chunk>
   <size>5</size>
-  <distance>200</distance>
+  <distance>100</distance>
 </chunk>
 </player>
 

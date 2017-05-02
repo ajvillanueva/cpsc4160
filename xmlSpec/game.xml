@@ -58,14 +58,22 @@
   <speedX>15</speedX>
   <speedY>0</speedY>
   <transparency>false</transparency>
+  <chunk>
+  <size>1</size>
+  <distance>200</distance>
+</chunk>
 </boss>
 
 <enemy1>
   <file>images/enemy_1.png</file>
-  <startLoc x="150" y="400"/>
-  <speedX>170</speedX>
+  <startLoc x="250" y="7400"/>
+  <speedX>0</speedX>
   <speedY>0</speedY>
   <transparency>false</transparency>
+  <chunk>
+  <size>5</size>
+  <distance>200</distance>
+</chunk>
 </enemy1>
 
 <enemy1b>
@@ -74,6 +82,10 @@
   <speedX>150</speedX>
   <speedY>0</speedY>
   <transparency>false</transparency>
+  <chunk>
+  <size>5</size>
+  <distance>200</distance>
+</chunk>
 </enemy1b>
 
 <enemy2>
@@ -82,6 +94,10 @@
   <speedX>260</speedX>
   <speedY>0</speedY>
   <transparency>false</transparency>
+  <chunk>
+  <size>5</size>
+  <distance>200</distance>
+</chunk>
 </enemy2>
 
 <enemy2b>
@@ -90,6 +106,10 @@
   <speedX>60</speedX>
   <speedY>0</speedY>
   <transparency>false</transparency>
+  <chunk>
+  <size>5</size>
+  <distance>200</distance>
+</chunk>
 </enemy2b>
 
 <enemy3>
@@ -98,6 +118,10 @@
   <speedX>425</speedX>
   <speedY>0</speedY>
   <transparency>false</transparency>
+  <chunk>
+  <size>5</size>
+  <distance>200</distance>
+</chunk>
 </enemy3>
 
 <enemy3b>
@@ -106,6 +130,10 @@
   <speedX>25</speedX>
   <speedY>0</speedY>
   <transparency>false</transparency>
+  <chunk>
+  <size>5</size>
+  <distance>200</distance>
+</chunk>
 </enemy3b>
 
 <enemy4>
@@ -114,6 +142,10 @@
   <speedX>200</speedX>
   <speedY>0</speedY>
   <transparency>false</transparency>
+  <chunk>
+  <size>5</size>
+  <distance>200</distance>
+</chunk>
 </enemy4>
 
 <enemy4b>
@@ -122,6 +154,10 @@
   <speedX>150</speedX>
   <speedY>0</speedY>
   <transparency>false</transparency>
+  <chunk>
+  <size>5</size>
+  <distance>200</distance>
+</chunk>
 </enemy4b>
 
 <player>
@@ -131,6 +167,10 @@
   <speedX>150</speedX>
   <speedY>175</speedY>
   <transparency>false</transparency>
+  <chunk>
+  <size>5</size>
+  <distance>200</distance>
+</chunk>
 </player>
 
 <beam>

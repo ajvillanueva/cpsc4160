@@ -10,7 +10,7 @@
 #include "frameGenerator.h"
 #include "player.h"
 #include "smartSprite.h"
-//#include "explodingSprite.h"
+#include "explodingSprite.h"
 
 bool hudIf = true;
 player* p = new player("player");
@@ -120,7 +120,7 @@ void Engine::switchSprite(){
 
 void Engine::checkForCollisions() {
 
-    std::vector<Drawable*>::const_iterator it = sprites.begin();
+    std::vector<Drawable*>::iterator it = sprites.begin();
     Drawable* player = sprites[0];
   if (!godmode) {
     //++it;
@@ -135,6 +135,10 @@ void Engine::checkForCollisions() {
     while ( it != sprites.end() ) {
       if (p->collidedWith(*it)  ) {
         //std::cout << "collision: " << collisions << std::endl;
+        Drawable* boom =
+          new ExplodingSprite(*static_cast<Sprite*>(*it));
+        delete *it;
+        *it = boom;
         ++collisions;
       }
       ++it;

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include "explodingSprite.h"
-#include "spriteSheet.h"
+#include "unpack.h"
 
 ExplodingSprite::ExplodingSprite(const Sprite& s) :
   Sprite(s),

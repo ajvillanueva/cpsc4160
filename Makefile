@@ -18,7 +18,6 @@ OBJS = \
 	frameGenerator.o \
 	sprite.o \
 	multisprite.o \
-	smartSprite.o \
 	collisionStrategy.o \
 	vector2f.o \
 	explodingSprite.o \

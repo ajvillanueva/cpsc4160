@@ -66,7 +66,7 @@
 
 <enemy1>
   <file>images/enemy_1.png</file>
-  <startLoc x="250" y="7400"/>
+  <startLoc x="250" y="7000"/>
   <speedX>0</speedX>
   <speedY>0</speedY>
   <transparency>false</transparency>

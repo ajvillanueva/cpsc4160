@@ -36,6 +36,7 @@ private:
 
   void draw() const;
   void update(Uint32);
+  void redraw();
 
   Engine(const Engine&);
   Engine& operator=(const Engine&);

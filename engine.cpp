@@ -105,6 +105,18 @@ io.writeText(strm3.str(), 30, 90);
   SDL_RenderPresent(renderer);
 }
 
+void Engine::redraw() {
+  sprites.push_back( new Sprite("boss") );
+  sprites.push_back( new Sprite("enemy1") );
+  sprites.push_back( new Sprite("enemy2") );
+  sprites.push_back( new Sprite("enemy3") );
+  sprites.push_back( new Sprite("enemy4") );
+  sprites.push_back( new Sprite("enemy1b") );
+  sprites.push_back( new Sprite("enemy2b") );
+  sprites.push_back( new Sprite("enemy3b") );
+  sprites.push_back( new Sprite("enemy4b") );
+}
+
 void Engine::update(Uint32 ticks) {
   for(auto* s : sprites) s->update(ticks);
   p->update(ticks);
@@ -195,6 +207,14 @@ void Engine::play() {
           p->setY(Gamedata::getInstance().getXmlInt("player/startLoc/y"));
 
           p->reset();
+
+          std::vector<Drawable*>::iterator ptr = sprites.begin();
+          while (ptr != sprites.end()) {
+            delete (*ptr);
+            ptr = sprites.erase(ptr);
+          }
+
+          redraw();
           // put enemies back where they were
         }
         if (keystate[SDL_SCANCODE_G]) {

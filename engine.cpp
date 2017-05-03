@@ -119,6 +119,7 @@ void Engine::switchSprite(){
   Viewport::getInstance().setObjectToTrack(sprites[currentSprite]);
 }
 
+
 void Engine::checkForCollisions() {
 
     std::vector<Drawable*>::iterator it = sprites.begin();
@@ -193,8 +194,7 @@ void Engine::play() {
 
           p->setX(Gamedata::getInstance().getXmlInt("player/startLoc/x"));
           p->setY(Gamedata::getInstance().getXmlInt("player/startLoc/y"));
-
-          p->reset();
+            p->reset();
           // put enemies back where they were
         }
         if (keystate[SDL_SCANCODE_G]) {

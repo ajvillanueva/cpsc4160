@@ -111,3 +111,17 @@ void player::update(Uint32 ticks) {
   bullets.update(ticks);
   stop();
 }
+
+player& player::operator=(const player& rhs) {
+  Drawable::operator=( rhs );
+  frame = rhs.frame;
+  worldWidth = rhs.worldWidth;
+  worldHeight = rhs.worldHeight;
+  frameWidth = rhs.frameWidth;
+  frameHeight = rhs.frameHeight;
+  initialVelocity = rhs.initialVelocity;
+  bulletName = rhs.bulletName;
+  //bullets =  rhs.bullets;
+  minSpeed = rhs.minSpeed;
+  return *this;
+}

@@ -13,7 +13,6 @@ class player : public Sprite {
 public:
   player(const std::string& name);
   player(const player& p);
-
   virtual void update(Uint32 ticks);
   virtual void draw() const;
   void shoot();
